@@ -1,5 +1,5 @@
 
-function [ output_args ] = PlotVars(c, Limits)
+function [ output_args ] = PlotOnlyP(c, Limits)
 global Vx Vy L W x y Fx Fy C
 global Phi nAtoms time Mass0 Mass1 Pty0in Pty1in Pty2in
 global LJEpsilon Phi0 PhiTot KETot MinX MaxX MinY MaxY
@@ -9,7 +9,7 @@ global PlotFig map im PlotSize ScaleF
 if isempty(Limits)
     Limits = Limits;
 end
-
+ScaleF
 plot(x(Pty0in), y(Pty0in), 'bo', 'markers',...
     MarkerSize,'MarkerFaceColor', 'b');
 hold on

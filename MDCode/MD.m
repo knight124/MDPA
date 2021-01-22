@@ -42,12 +42,12 @@ PlotPosOnly = 0;
 
 % Simulation initiallization
 % InitThree
-% InitBlock
- InitCirc
+%InitBlock
+% InitCirc
 % InitBlock0
 % InitBlock0FD
 % InitVStream
-% InitHCP
+ InitHCP
 % InitHCPBlob
 % InitVStreamHCP
 % InitHCPMeltSim
@@ -94,14 +94,14 @@ else
     V2_1 = 0;
 end
 if nAtoms2
-    V3_1 = (Vx(Pty2in).*Vx(Pty2in) + Vy(Pty2in).*Vy(Pty2in));
+    V2_2 = (Vx(Pty2in).*Vx(Pty2in) + Vy(Pty2in).*Vy(Pty2in));
 else
-    V3_1 = 0;
+    V2_2 = 0;
 end
 
 KE0 = mean(V2_0) * Mass0 * 0.5;
 KE1 = mean(V2_1) * Mass1 * 0.5;
-KE2 = mean(V2_1) * Mass2 * 0.5;
+KE2 = mean(V2_2) * Mass2 * 0.5;
 
 KETot(c) = (KE0 * nAtoms0 + KE1 * nAtoms1 + KE2 * nAtoms2);
 T(c) = KETot(c) / nAtoms / C.kb;
@@ -160,9 +160,11 @@ while t < TStop
         
         x(Pty0in) = -xpp(Pty0in) + 2 * xp(Pty0in) + dt^2 / Mass0 * Fx(Pty0in);
         x(Pty1in) = -xpp(Pty1in) + 2 * xp(Pty1in) + dt^2 / Mass1 * Fx(Pty1in);
+         x(Pty2in) = -xpp(Pty2in) + 2 * xp(Pty2in) + dt^2 / Mass2 * Fx(Pty2in);
         
         y(Pty0in) = -ypp(Pty0in) + 2 * yp(Pty0in) + dt^2 / Mass0 * Fy(Pty0in);
         y(Pty1in) = -ypp(Pty1in) + 2 * yp(Pty1in) + dt^2 / Mass1 * Fy(Pty1in);
+        y(Pty2in) = -ypp(Pty2in) + 2 * yp(Pty2in) + dt^2 / Mass2 * Fy(Pty2in);
         
         Vx = (x - xpp) / (2 * dt);%+ randn()*sqrt(1.38064852e-23*500/Mass0)
         Vy = (y - ypp) / (2 * dt);
@@ -188,14 +190,14 @@ while t < TStop
         V2_1 = 0;
     end
     if nAtoms2
-        V3_1 = (Vx(Pty2in).*Vx(Pty2in) + Vy(Pty2in).*Vy(Pty2in));
+        V2_2 = (Vx(Pty2in).*Vx(Pty2in) + Vy(Pty2in).*Vy(Pty2in));
     else
-        V3_1 = 0;
+        V2_2 = 0;
     end
     
     KE0 = mean(V2_0) * Mass0 * 0.5;
     KE1 = mean(V2_1) * Mass1 * 0.5;
-    KE1 = mean(V2_1) * Mass2 * 0.5;
+    KE2 = mean(V2_2) * Mass2 * 0.5;
     
     KETot(c) = (KE0 * nAtoms0 + KE1 * nAtoms1 + KE2 * nAtoms2);
     T(c) = KETot(c) / nAtoms / C.kb;

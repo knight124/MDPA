@@ -3,7 +3,7 @@ function [ output_args ] = PlotVars(c, Limits)
 global Vx Vy L W x y Fx Fy C
 global Phi nAtoms time Mass0 Mass1 Mass2 Pty0in Pty1in Pty2in
 global LJEpsilon Phi0 PhiTot KETot MinX MaxX MinY MaxY
-global T T0 T1 ScaleV MarkerSize doPlotImage PlotCount
+global T T0 T1 T2 ScaleV MarkerSize doPlotImage PlotCount
 global PlotFig map im PlotSize ScaleF
 
 if isempty(Limits)
@@ -58,6 +58,8 @@ subplot(3,2,3), plot(x(Pty0in), y(Pty0in), 'bo', 'markers',...
 hold on
 subplot(3,2,3), plot(x(Pty1in), y(Pty1in), 'go', 'markers',...
     MarkerSize,'MarkerFaceColor','g');
+subplot(3,2,3), plot(x(Pty1in), y(Pty1in), 'ro', 'markers',...
+    MarkerSize,'MarkerFaceColor','r');
 subplot(3,2,3),quiver(x, y, Vx * ScaleV, Vy * ScaleV, 0, 'r', 'linewidth', 2);
 hold off
 axis(Limits);
@@ -91,6 +93,7 @@ subplot(3, 2, 6), plot(time, T, 'k', 'linewidth', 2);
 hold on
 subplot(3, 2, 6), plot(time, T0, 'b', 'linewidth', 2);
 subplot(3, 2, 6), plot(time, T1, 'g', 'linewidth', 2);
+subplot(3, 2, 6), plot(time, T2, 'r', 'linewidth', 2);
 %
 xlabel('time')
 ylabel('Temperature')
