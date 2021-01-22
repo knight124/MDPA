@@ -6,6 +6,7 @@ Method = 'VE'; % VE -- verlot; FD -- Forward Difference
 
 Mass0 = 14 * C.am; % Silicon
 Mass1 = 5 * C.am; % Argon
+Mass2 = 10*C.am;
 
 AtomSpacing = 0.5430710e-9;
 LJSigma = AtomSpacing / 2^(1/6);
@@ -21,7 +22,7 @@ Y0 = AtomSpacing*[0 -1.2 0];
 V = 0;
 VX0 = [0 0 0];
 VY0 = [0 V/2 V/2];
-Types = [0 1 0];
+Types = [0 1 2];
 AddListAtomic(X0,Y0,VX0,VY0,Types,0,0);
 
 Size = 2 * AtomSpacing;
