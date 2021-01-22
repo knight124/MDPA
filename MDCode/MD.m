@@ -47,10 +47,10 @@ PlotPosOnly = 0;
 % InitBlock0
 % InitBlock0FD
 % InitVStream
- InitHCP
+% InitHCP
 % InitHCPBlob
 % InitVStreamHCP
-% InitHCPMeltSim
+ InitHCPMeltSim
 
 MaxX = max(x) * 1.5;
 MinX = min(x) * 1.5;

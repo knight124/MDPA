@@ -10,6 +10,7 @@ Method = 'VE'; % VE -- verlot; FD -- Forward Difference
 
 Mass0 = 14 * C.am; % Silicon
 Mass1 = 4 * C.am; % Argon
+Mass2 = 10 * C.am;
 
 AtomSpacing = 0.5430710e-9;
 LJSigma = AtomSpacing / 2^(1 / 6);
@@ -18,8 +19,12 @@ LJEpsilon = 1e-21;
 PhiCutoff = 3 * AtomSpacing * 1.1;
 
 T = 300;
+Type = [0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 ...
+        0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 ...
+        0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 ...
+        0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0];
 
-AddHCPAtomicBlob(10, 0, 0, 0, 0, 0, InitDist, T, 0);
+AddHCPAtomicBlob(10, 0, 0, 0, 0, 0, InitDist, T, Type);
 
 Size = 15 * AtomSpacing;
 Limits = [-Size +Size -Size +1.5*Size]; % square is good

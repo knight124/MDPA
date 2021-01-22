@@ -6,6 +6,7 @@ Method = 'VE'; % VE -- verlot; FD -- Forward Difference
 
 Mass0 = 14 * C.am; % Silicon
 Mass1 = 4 * C.am; % Argon
+Mass2 = 10 * C.am;
 
 AtomSpacing = 0.5430710e-9;
 LJSigma = AtomSpacing / 2^(1 / 6);
@@ -20,6 +21,10 @@ AddHCPAtomicBlob(10, 0, 0, 0, 0, 0, InitDist, T, 0);
 Ep = 4 * C.q_0;
 vy0 = -sqrt(0.02 * Ep / Mass1);
 AddHCPAtomicBlob(5, -0, 20, 0, vy0, 0, InitDist, T, 1);
+
+Ep = 4 * C.q_0;
+vy0 = sqrt(0.02 * Ep / Mass2);
+AddHCPAtomicBlob(5, -0, -20, 0, vy0, 0, InitDist, T, 2);
 
 Size = 15 * AtomSpacing;
 Limits = [-Size +Size -Size +1.5*Size]; % square is good

@@ -13,7 +13,11 @@ for p = 0:num - 1
     nAtoms = nAtoms + 1;
     x(nAtoms) = x0 * AtomSpacing - Seper * p * AtomSpacing * cos(PartAng);
     y(nAtoms) = y0 * AtomSpacing - Seper * p * AtomSpacing * sin(PartAng);
+    if (size(Type,2)>1)
     AtomType(nAtoms) = Type(nAtoms-temp);
+    else
+         AtomType(nAtoms) = Type;
+    end
 end
 
 V = sqrt(2 * Ep / Mass);
